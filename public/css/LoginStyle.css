@@ -1,3 +1,7 @@
+*{
+    font-family: 'Roboto Serif', serif;
+}
+
 .divider:after,
 .divider:before {
 content: "";
