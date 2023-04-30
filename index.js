@@ -4,7 +4,7 @@ const express = require('express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const path = require('path');
-
+const db = require("./database");
 //engine
 
 const app = express();
@@ -30,7 +30,8 @@ app.use(session({
     }
 }));
 
-
+// check conection with db
+db.checkConection();
 
 app.get("/",function(req,res){
     res.render("login");
