@@ -36,8 +36,17 @@ db.checkConection();
 app.get("/",function(req,res){
     res.render("login");
 });
-
-
+//Management Login
+app.post("/Home", async function(req,res){
+    var UserID = req.body.UserID;
+    var role = await db.checkRole(UserID[0]);
+    if (role == 'Manage') {
+        res.render("ManagementHome");
+    }
+    else {
+        res.redirect("/");
+    }
+});
 //set port
 
 const PORT = process.env.PORT || 3000;
